@@ -13,10 +13,10 @@ recognition.onresult = (event) => {
     const transcript = event.results[0][0].transcript.toLowerCase();
     status.innerText = `Heard: "${transcript}"`;
 
-    if (transcript.startsWith("naya task")) {
-        const taskText = transcript.replace("naya task", "").trim();
-        if (taskText) addTask(taskText);
-    } 
+    if (transcript.startsWith("new task")) {
+    const taskText = transcript.replace("new task", "").trim();
+    if (taskText) addTask(taskText);
+}
     else if (transcript.startsWith("delete task")) {
         const match = transcript.match(/\d+/);
         const num = match ? parseInt(match[0]) - 1 : NaN;
